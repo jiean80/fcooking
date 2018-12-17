@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="normalize.css">
+<style>
+@font-face {
+      font-family: "DungGeunMo";
+      src: url("./font/DungGeunMo.eot");
+    }
+	
+body{background: url(img/bgimg.gif) repeat; background-size:cover; font-family: "DungGeunMo";}
+
+#Cplace {position: absolute; top:20px; left:220px;}
+#banner {position: absolute; top:30px; left:260px; animation: example 1s infinite;
+animation-direction: alternate;}
+
+@keyframes example {
+	from{top:30px;}
+	to{top:40px;}
+}
+
+
+
+#knife {position: absolute; top:210px; left:415px; cursor:pointer;}
+#salt {position: absolute; top: 210px; left:450px; cursor:pointer;}
+#bread {position: absolute; top:235px; left:385px; cursor:pointer;}
+
+#egg {position: absolute; top:200px; left:480px; cursor:pointer;}
+#pan {position: absolute; top:190px; left:510px; cursor:pointer;}
+
+#chicken {position: absolute; top:170px; left:530px; cursor:pointer;}
+#pot {position: absolute; top:140px; left:570px; cursor:pointer;}
+#water {position: absolute; top:185px; left:662px; cursor:pointer;}
+
+
+#body1{position: absolute; top:350px; left:400px; cursor:pointer;}
+#body2{position: absolute; top:370px; left:530px; cursor: pointer;}
+#body3{position: absolute; top:340px; left:690px; cursor: pointer;}
+
+#menu {position: absolute; top:300px; left:430px; display: none;}
+
+
+#hannibal {position: absolute; left:700px; top:250px; cursor:pointer;}
+
+#chatBox {position:absolute; top:160px; left:760px; width:170px; height:110px; cursor:pointer; margin:0; background:url('./img/chat/pg_1.gif');}
+
+
+
+
+#container{ width:1200px; height:560px; position: relative; margin: auto; margin-top: 50px; }
+
+</style>
+<head>
+	<title>Hannibal's Cooking Class</title>
+
+
+
+</head>
+<body>
+	
+
+<div id="container">
+	<div id="Cplace">
+		<img src="./img/cplace.png">
+	</div>
+	
+	
+	<div id="knife">
+		<img src="./img/knife.png">
+	</div>
+	<div id="salt">
+		<img src="./img/salt.png">
+	</div>
+	<div id="bread">
+		<img src="./img/bread.png">
+	</div>
+
+
+	<div id="egg">
+		<img src="./img/egg.png">
+	</div>
+	<div id="pan">
+		<img src="./img/pan.png">
+	</div>
+
+
+	<div id="chicken">
+		<img src="./img/chicken.png">
+	</div>
+	<div id="pot">
+		<img src="./img/pot.png">
+	</div>
+	<div id="water">
+		<img src="./img/water.png">
+	</div>
+
+
+	<div id="hannibal">
+		<img src="./img/hannibal.png">
+	</div>
+	<div id="body1">
+		<img src="./img/body_1.png">
+	</div>
+	<div id="body2">
+		<img src="./img/body_2.png">
+	</div>
+	<div id="body3">
+		<img src="./img/body_3.png">
+	</div>
+
+	<div id = "chatBox">
+		
+	</div>
+
+	<div id="menu">
+		<img src="./img/menu.gif">
+	</div>
+	
+	
+</div>
+
+<div id="banner">
+		<img src="./img/banner.png">
+	</div>
+
+	<audio id="knifeM">
+		<source src="./music/knifeM.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="breadM">
+		<source src="./music/breadM.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="eggM">
+		<source src="./music/eggM.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="chickenM">
+		<source src="./music/chickenM.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="potM">
+		<source src="./music/potM.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="waterM">
+		<source src="./music/waterM.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="crowedM" autoplay="true">
+		<source src="./music/crowedM.mp3" type="audio/mpeg">
+	</audio>
+
+	<audio id="chatM" autoplay="true">
+		<source src="./music/chat.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="bgmusic" autoplay="true">
+		<source src="./music/bgmusic.mp3" type="audio/mpeg">
+	</audio>
+
+
+<script type="text/javascript">
+
+	var body1Select = false;
+	var body2Select = false;
+	var body3Select = false;
+
+	var knifeCook = false;
+	var breadCook = false;
+	var saltCook = false;
+	var panCook = false;
+	var potCook = false;
+	var waterCook = false; 
+
+	function checkProcess(){
+		if(body1Select == true){
+			//1번 사람의 요리순서
+			console.log("스테이크");
+			
+			q = 6;
+			i = 0;
+			
+
+			if(saltCook == true){
+				console.log("양념 선택, 맞습니다!");
+				i = 0;
+				
+				
+				if(knifeCook == true){
+					console.log("2단계 칼도 맞았네요!");
+					i = 0;
+					
+
+					if(panCook == true){
+						console.log("잘 해냈습니다!!");
+						i = 0;
+						
+					} else{
+						console.log("아쉽게 틀렸군요.");
+						panCook = false;
+						i = 0;
+						
+					}
+				}else{
+					console.log("1단계는 맞았는데, 2단계가 틀렸어요");
+					i = 0;
+						
+					knifeCook = false;
+					panCook = false;
+				}
+			}else{
+				console.log("다른 선택을 해보세요");
+				i = 0;
+				
+				
+				breadCook = false;
+				saltCook = false;
+				panCook = false;
+				potCook = false;
+				waterCook = false; 
+			}		
+
+		}else if(body2Select == true){
+			//2번 사람의 요리순서
+			console.log("미트볼");
+
+			if(knifeCook == true){
+
+				
+				if(saltCook == true){
+
+					if(potCook == true){
+
+
+					}else{
+						console.log("아쉽게 틀렸네요.");
+
+					}
+
+				
+
+				}else{
+					console.log("1번째는 맞았는데 두번째는 2");
+
+				}			
+
+
+			}else{
+				console.log("다른 선택을 해보세요");
+
+				breadCook = false;
+				saltCook = false;
+				panCook = false;
+				potCook = false;
+				waterCook = false;
+			}
+
+		}else if(body3Select == true){
+			//3번 사람의 요리 순서
+			console.log("로띠 드 뀌스");
+			if(saltCook == true){
+
+
+
+			}else{
+				console.log("다른 선택을 해보세요");
+
+				breadCook = false;
+				saltCook = false;
+				panCook = false;
+				potCook = false;
+				waterCook = false;
+			}
+		}
+
+	}
+
+
+	
+
+
+	var imgA = ["./img/chat/pg_1", //0
+				"./img/chat/pg_2", //1
+				"./img/chat/pg_3", //2
+				"./img/chat/pg_4", //3
+				"./img/chat/pg_5", //4
+				"./img/chat/pg_6",]; //15  
+
+	var imgS = ["./img/chat/steak_1", //0
+				"./img/chat/steak_2", //1
+				"./img/chat/steak_3", //2
+				"./img/chat/steak_4", //3
+				"./img/chat/steak_5", //4
+				"./img/chat/steak_6",] //5
+
+
+
+	
+
+	
+
+		var toggle = "off";
+		
+
+
+
+		knife.onclick = function(){
+			
+			if(knifeCook == false){
+
+				knifeCook = true;
+				breadCook = false;
+				saltCook = false;
+				panCook = false;
+				potCook = false;
+				waterCook = false; 
+				checkProcess();
+
+				knifeM.play();
+				hannibal.style.top = "45%";
+				hannibal.style.left = "35%";
+
+				
+			}else{
+				
+				knifeCook = false;
+				breadCook = false;
+				saltCook = false;
+				panCook = false;
+				potCook = false;
+				waterCook = false; 
+				checkProcess();
+
+				knifeM.pause();
+				knifeM.load();
+
+			}
+		}
+		
+		salt.onclick = function(){
+			
+			if(saltCook == false){
+
+				knifeCook = false;
+				breadCook = false;
+				saltCook = true;
+				panCook = false;
+				potCook = false;
+				waterCook = false; 
+				checkProcess();
+
+				hannibal.style.top = "45%";
+				hannibal.style.left = "35%";
+
+				
+			}else{
+				
+				knifeCook = false;
+				breadCook = false;
+				saltCook = false;
+				panCook = false;
+				potCook = false;
+				waterCook = false; 
+				checkProcess();
+
+
+			}
+		}
+
+		bread.onclick = function(){
+			if(toggle == "off"){
+				knifeCook = false;
+				breadCook = true;
+				saltCook = false;
+				panCook = false;
+				potCook = false;
+				waterCook = false; 
+				checkProcess();
+
+				breadM.play();
+				toggle = "on";
+
+			}else{
+				knifeCook = false;
+				breadCook = false;
+				saltCook = false;
+				panCook = false;
+				potCook = false;
+				waterCook = false;
+				checkProcess();
+
+				breadM.pause();
+				breadM.load();
+				toggle = "off";
+
+			}
+		}
+		egg.onclick = function(){
+			if(toggle == "off"){
+				knifeCook = false;
+				breadCook = true;
+				saltCook = false;
+				panCook = true;
+				potCook = false;
+				waterCook = false; 
+				checkProcess();
+
+				eggM.play();
+				toggle = "on";
+
+			}else{
+				knifeCook = false;
+				breadCook = true;
+				saltCook = false;
+				panCook = true;
+				potCook = false;
+				waterCook = false; 
+				checkProcess();
+				eggM.pause();
+				eggM.load();
+				toggle = "off";
+
+			}
+		}
+
+		chicken.onclick = function(){
+			if(toggle == "off"){
+				chickenM.play();
+				toggle = "on";
+
+			}else{
+				chickenM.pause();
+				chickenM.load();
+				toggle = "off";
+
+			}
+		}
+
+		pot.onclick = function(){
+			if(toggle == "off"){
+				knifeCook = false;
+				breadCook = true;
+				saltCook = false;
+				panCook = false;
+				potCook = true;
+				waterCook = false; 
+				checkProcess();
+				potM.play();
+				toggle = "on";
+
+			}else{
+				knifeCook = false;
+				breadCook = true;
+				saltCook = false;
+				panCook = false;
+				potCook = false;
+				waterCook = false;
+				potM.pause();
+				potM.load();
+				toggle = "off";
+
+			}
+		}
+
+		water.onclick = function(){
+			if(toggle == "off"){
+				waterM.play();
+				toggle = "on";
+
+			}else{
+				waterM.pause();
+				waterM.load();
+				toggle = "off";
+				
+			}
+		}
+
+		hannibal.onclick =  function(){
+			hannibal.style.animationPlayState = "running";
+			chatBox.style.animationPlayState = "running";
+		}
+
+
+
+		var first = "off";
+		var second = "off";
+		var q = 6;
+		var s = 0;
+
+		body1.onclick = function(){
+			
+
+			if(body1Select == false){
+			
+			chatBox.style.display = "inline";
+			menu.style.display = "none";
+
+
+			hannibal.style.top = "300px";
+			hannibal.style.left= "480px";
+
+			
+			chatBox.style.top = "210px";
+			chatBox.style.left = "540px";
+			
+
+			body1Select == true;
+			body2Select == false;
+			body3Select == false;
+			checkProcess();
+
+
+			
+
+			}else{
+				//반대로애니메이션
+				body1Select == false;
+				body2Select == false;
+				body3Select == false;
+				checkProcess();
+			}
+			
+		}
+
+		body2.onclick = function(){
+
+			if(body2Select == false){
+
+			hannibal.style.top = "300px";
+			hannibal.style.left= "600px";
+
+			chatBox2.style.top = "210px";
+			chatBox2.style.left = "650px";
+
+			chatBox.style.top = "220px";
+			chatBox.style.left = "660px";
+
+			body2Select == true;
+			body1Select == false;
+			body3Select == false;
+			}else{
+				//반대로애니메이션
+				body1Select == false;
+				body2Select == false;
+				body3Select == false;
+			}
+			
+		}
+
+		body3.onclick = function(){
+
+			if(body3Select == false){
+			hannibal.style.top = "280px";
+			hannibal.style.left= "700px";
+
+			chatBox2.style.top = "190px";
+			chatBox2.style.left = "750px";
+
+			chatBox.style.top = "200px";
+			chatBox.style.left = "760px";
+
+			body1Select == false;
+			body2Select == false;
+			body3Select == true;
+			}else{
+				//반대로애니메이션
+				body1Select == false;
+				body2Select == false;
+				body3Select == false;
+			}
+			
+		}
+
+		var q = 0;
+		var s = 0;
+
+		chatBox.onclick = function(){
+			chatM.play();
+			//for (var b=0; b<6; b++;){
+			
+
+			q++;
+			if(q == 6){
+				chatBox.style.display = "none";
+				chatM.pause();
+				menu.style.display = "inline";
+
+			}
+			var aText = "url('" + imgA[q] + ".gif')";
+			
+
+			chatBox.style.background = aText;
+
+			if(body1Select == true){
+				chatBox.style.display = "inline";
+
+
+				s = 0;
+				s++;
+				var aText = "url('" + imgS[s] + ".gif')";
+
+				chatBox.style.background = aText;
+
+				if(s == 5){
+					chatbox.style.display = "none";
+				}
+				
+				console.log(aText);
+				
+			}
+
+		}
+		
+
+	//var bgPlay = 0;
+	window.onmousemove = function(){
+		bgPlay++;
+		if(bgPlay == 1){ bgmusic.play();}
+	}
+
+
+	
+</script>
+
+</body>
+</html>
